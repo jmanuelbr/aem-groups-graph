@@ -17,7 +17,7 @@
   <groupId>io.github.jmanuelbr</groupId>
   <artifactId>aem-groups-graph</artifactId>
   <packaging>pom</packaging>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <name>Groups Membership Graph</name>
   <description>Groups Membership Graph</description>
   <url>https://github.com/jmanuelbr/aem-groups-graph</url>
@@ -422,7 +422,7 @@ Bundle-DocURL:
           <plugin>
             <groupId>org.sonatype.central</groupId>
             <artifactId>central-publishing-maven-plugin</artifactId>
-            <version>0.7.0</version>
+            <version>0.8.0</version>
             <extensions>true</extensions>
             <configuration>
               <!-- matches the <server id="central"> in ~/.m2/settings.xml -->
