@@ -1,0 +1,7 @@
+{
+    "scripts": [
+        "create path (sling:OrderedFolder) /content/dam/groupsgraph",
+        "create path (nt:unstructured) /content/dam/groupsgraph/jcr:content",
+        "set properties on /content/dam/groupsgraph/jcr:content\n  set cq:conf{String} to /conf/groupsgraph\n  set jcr:title{String} to \"Groups Membership Graph\"\nend"
+    ]
+}

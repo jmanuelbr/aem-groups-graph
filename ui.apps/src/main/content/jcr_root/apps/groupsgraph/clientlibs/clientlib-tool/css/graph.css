@@ -1,0 +1,164 @@
+/* Groups Membership Graph - tool styling */
+
+html,
+body.groupsgraph {
+    margin: 0;
+    height: 100%;
+    background: #fafafa;
+    font-family: adobe-clean, "Source Sans Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #2c2c2c;
+}
+
+.groupsgraph__app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 24px 32px 0;
+}
+
+.groupsgraph__header {
+    flex: 0 0 auto;
+}
+
+.groupsgraph__title {
+    margin: 0 0 4px;
+}
+
+.groupsgraph__subtitle {
+    margin: 0 0 16px;
+    max-width: 760px;
+    color: #6e6e6e;
+}
+
+.groupsgraph__toolbar {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.groupsgraph__picker {
+    min-width: 360px;
+}
+
+.groupsgraph__legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-left: auto;
+}
+
+.groupsgraph__legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #4b4b4b;
+}
+
+.groupsgraph__swatch {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+}
+
+.groupsgraph__truncated {
+    flex: 0 0 auto;
+    margin-top: 12px;
+}
+
+.groupsgraph__stage {
+    position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+    margin-top: 12px;
+}
+
+.groupsgraph__canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle, #ececec 1px, transparent 1px) 0 0 / 22px 22px,
+        #ffffff;
+    border: 1px solid #e1e1e1;
+    border-radius: 6px;
+}
+
+.groupsgraph__empty {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #909090;
+    pointer-events: none;
+}
+
+.groupsgraph__spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.groupsgraph__details {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 320px;
+    max-height: calc(100% - 32px);
+    overflow-y: auto;
+    padding: 16px 20px;
+    background: #ffffff;
+    border: 1px solid #d3d3d3;
+    border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    animation: groupsgraph-slide-in 0.2s ease-out;
+}
+
+@keyframes groupsgraph-slide-in {
+    from { opacity: 0; transform: translateX(12px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.groupsgraph__details-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.groupsgraph__details-name {
+    margin: 0 24px 12px 0;
+    word-break: break-word;
+}
+
+.groupsgraph__details-list {
+    margin: 0;
+}
+
+.groupsgraph__details-list dt {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #909090;
+    margin-top: 12px;
+}
+
+.groupsgraph__details-list dd {
+    margin: 2px 0 0;
+    word-break: break-word;
+}
+
+.groupsgraph__denied {
+    margin: 48px auto;
+    max-width: 480px;
+}

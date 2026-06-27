@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"
+      data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+      data-sly-use.access="com.adobe.aem.groupsgraph.core.models.ToolAccessModel">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Groups Membership Graph</title>
+    <sly data-sly-call="${clientlib.all @ categories=['coralui3', 'granite.ui.coral.foundation', 'groupsgraph.tool']}"/>
+</head>
+<body class="coral--light groupsgraph">
+
+    <sly data-sly-test="${!access.allowed}">
+        <coral-alert variant="error" class="groupsgraph__denied">
+            <coral-alert-header>Access denied</coral-alert-header>
+            <coral-alert-content>
+                You must be an AEM administrator to use the Groups Membership Graph tool.
+            </coral-alert-content>
+        </coral-alert>
+    </sly>
+
+    <sly data-sly-test="${access.allowed}">
+        <div class="groupsgraph__app"
+             data-graph-endpoint="/apps/groupsgraph/endpoints/graph.json">
+
+            <header class="groupsgraph__header">
+                <h2 class="coral-Heading coral-Heading--2 groupsgraph__title">Groups Membership Graph</h2>
+                <p class="groupsgraph__subtitle">
+                    Select a user or group to see every group it belongs to &mdash; directly and
+                    through nested memberships &mdash; coloured by how many hops away each group is.
+                </p>
+            </header>
+
+            <div class="groupsgraph__toolbar">
+                <sly data-sly-resource="${'picker'}"></sly>
+
+                <coral-checkbox class="groupsgraph__show-system">
+                    Show out-of-the-box groups
+                </coral-checkbox>
+
+                <div class="groupsgraph__legend" hidden></div>
+            </div>
+
+            <coral-alert variant="warning" class="groupsgraph__truncated" hidden>
+                <coral-alert-header>Graph truncated</coral-alert-header>
+                <coral-alert-content>
+                    This principal belongs to a very large number of groups; only the closest ones
+                    are shown.
+                </coral-alert-content>
+            </coral-alert>
+
+            <div class="groupsgraph__stage">
+                <div class="groupsgraph__canvas"></div>
+
+                <aside class="groupsgraph__details" hidden>
+                    <button is="coral-button" variant="quiet" icon="close"
+                            class="groupsgraph__details-close" title="Close"></button>
+                    <h3 class="coral-Heading coral-Heading--4 groupsgraph__details-name"></h3>
+                    <dl class="groupsgraph__details-list"></dl>
+                </aside>
+
+                <div class="groupsgraph__empty">
+                    <coral-icon icon="graphBarVertical" size="L"></coral-icon>
+                    <p>Pick a principal above to render its membership graph.</p>
+                </div>
+
+                <div class="groupsgraph__spinner" hidden>
+                    <coral-wait size="L"></coral-wait>
+                </div>
+            </div>
+        </div>
+    </sly>
+
+</body>
+</html>

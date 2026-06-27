@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/groupsgraph/components"/>
+    <filter root="/apps/groupsgraph/clientlibs"/>
+    <filter root="/apps/groupsgraph/content"/>
+    <filter root="/apps/groupsgraph/endpoints"/>
+    <filter root="/apps/cq/core/content/nav/tools/security/membership-graph"/>
+</workspaceFilter>
